@@ -5,7 +5,7 @@ find_package(Boost REQUIRED thread)
 find_package(urdfdom REQUIRED)
 find_package(urdfdom_headers REQUIRED)
 find_package(catkin REQUIRED COMPONENTS
-  urdf_parser_plugin pluginlib rosconsole_bridge roscpp cmake_modules)
+  urdf_parser_plugin pluginlib rosconsole_bridge roscpp cmake_modules class_loader roslib)
 
 
 find_package(TinyXML REQUIRED)
@@ -26,7 +26,7 @@ add_compile_options(-std=c++11)
 catkin_package(
   LIBRARIES ${PROJECT_NAME}
   INCLUDE_DIRS include ${CATKIN_DEVEL_PREFIX}/include
-  CATKIN_DEPENDS rosconsole_bridge roscpp
+  CATKIN_DEPENDS rosconsole_bridge roscpp class_loader roslib
   DEPENDS urdfdom_headers urdfdom Boost TinyXML
 )
 install(FILES ${generated_compat_header} DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
